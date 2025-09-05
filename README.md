@@ -47,7 +47,7 @@ pip install -e .
 
 ## Train
 ```
-python tran.py --task=limx_airbot --rl_device=cuda:0 --headless --max_iterations=10000
+python train.py --task=limx_airbot --rl_device=cuda:0 --headless --max_iterations=10000
 
 # or
 
