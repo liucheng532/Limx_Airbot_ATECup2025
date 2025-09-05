@@ -1006,8 +1006,6 @@ class Airbot(LeggedRobot):
         self.base_align_z_axis[:,:2] = self.root_states[:, :2]
 
 
-
-
     def cart2sphere(self,cart):
         sphere = torch.zeros_like(cart)
         sphere[:, 0] = torch.norm(cart, dim=-1)

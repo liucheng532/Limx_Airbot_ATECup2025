@@ -13,6 +13,8 @@ class AirbotRoughCfg( LeggedRobotCfg ):
         env_spacing = 3.  # not used with heightfields/trimeshes 
         send_timeouts = True # send time out information to the algorithm
         episode_length_s = 20 # episode length in seconds
+
+
     class commands( LeggedRobotCfg.commands ):
         curriculum = False
         max_curriculum = 1.
@@ -24,6 +26,7 @@ class AirbotRoughCfg( LeggedRobotCfg ):
             lin_vel_y = [-0., 0.]   # min max [m/s]
             ang_vel_yaw = [-0., 1.]    # min max [rad/s]
             heading = [-3.14, 3.14]
+            
     class terrain( LeggedRobotCfg.env ):
         mesh_type = 'plane' # "heightfield" # none, plane, heightfield or trimesh
         horizontal_scale = 0.1 # [m]
@@ -66,8 +69,8 @@ class AirbotRoughCfg( LeggedRobotCfg ):
             'arm_joint03':0.,
             'arm_joint04':0.,
             'arm_joint05':0.,
-
         }
+        
     class goal_ee:
         local_axis_z_offset = 0.3
         init_local_cube_object_pos = [0.5,0,0.35]
@@ -176,17 +179,19 @@ class AirbotRoughCfg( LeggedRobotCfg ):
             gripper_track = 1.0
         clip_observations = 100.
         clip_actions = 100.
+
 class AirbotRoughCfgPPO( LeggedRobotCfgPPO ):
     seed = 21
     class algorithm( LeggedRobotCfgPPO.algorithm ):
         entropy_coef = 0.01
         learning_rate = 1.e-3
+
     class runner( LeggedRobotCfgPPO.runner ):
         run_name = ''
         experiment_name = 'airbot_0'
         resume = False
         num_steps_per_env = 24 # per iteration
-        max_iterations = 3000
+        max_iterations = 8000
         save_interval =100
         load_run = -1
         checkpoint = -1
@@ -197,3 +202,4 @@ class AirbotRoughCfgPPO( LeggedRobotCfgPPO ):
         actor_hidden_dims = [128, 128, 128]
         critic_hidden_dims = [128, 128, 128]
         activation = 'elu'   # can be elu, relu, selu, crelu, lrelu, tanh, sigmoid
+        

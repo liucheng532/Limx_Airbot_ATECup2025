@@ -47,13 +47,27 @@ pip install -e .
 
 ## Train
 ```
-python tran.py --task=b2w --rl_device=cuda:0
+python tran.py --task=limx_airbot --rl_device=cuda:0 --headless --max_iterations=10000
 
 # or
 
-python train.py --task=airbot  --rl_device=cuda:0 
+python train.py --task=airbot  --rl_device=cuda:0 --headless
 
  ```
+
+ ## Tensorboard(view the training chart)
+ ```
+ cd /home/liucheng/Desktop/code/locomanipulation_code/legged-robots-manipulation/loco_manipulation_gym && tensorboard --logdir=logs --port=6006
+
+ http://localhost:6006
+```
+
+## troubleshot
+```
+if:ImportError: libpython3.8.so.1.0: cannot open shared object file: No such file or directory
+enter: export LD_LIBRARY_PATH=/home/lilucheng/miniconda3/envs/hvgym/lib:$LD_LIBRARY_PATH
+```
+
 
 # Citing
 

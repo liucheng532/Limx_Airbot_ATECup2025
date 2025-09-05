@@ -32,40 +32,19 @@ from loco_manipulation_gym import LOCO_MANI_GYM_ROOT_DIR, LOCO_MANI_GYM_ENVS_DIR
 from .base.legged_robot import LeggedRobot
 
 
-
-from loco_manipulation_gym.envs.go2_human.go2_human_config import Go2HumanRoughCfg, Go2HumanRoughCfgPPO
-from loco_manipulation_gym.envs.go2_human.go2_human_robot import Go2HumanRobot
-
-from loco_manipulation_gym.envs.go2_arx.go2_arx_config import Go2ArxRoughCfg, Go2ArxRoughCfgPPO
-from loco_manipulation_gym.envs.go2_arx.go2_arx_robot import Go2ArxRobot
-
-from loco_manipulation_gym.envs.b2w_z1.b2w_z1_config import B2WZ1RoughCfg, B2WZ1RoughCfgPPO
-from loco_manipulation_gym.envs.b2w_z1.b2w_z1_robot import B2WZ1Robot
-
-
 import os
 
 from loco_manipulation_gym.utils.task_registry import task_registry
 from loco_manipulation_gym.envs.airbot.airbot_robot import Airbot
-from loco_manipulation_gym.envs.b2w.b2w_robot import B2w
-
 from loco_manipulation_gym.envs.airbot.airbot_config import AirbotRoughCfg, AirbotRoughCfgPPO
-from loco_manipulation_gym.envs.b2w.b2w_config import B2wRoughCfg, B2wRoughCfgPPO
 
+from loco_manipulation_gym.envs.solefoot_flat_with_arm.solefoot_flat_with_arm import BipedSFWithArm
+from loco_manipulation_gym.envs.solefoot_flat_with_arm.solefoot_flat_with_arm_config import BipedCfgSFWithArm, BipedCfgPPOSFWithArm
 
-from loco_manipulation_gym.envs.go2w.go2w_robot import Go2w
-from loco_manipulation_gym.envs.go2w.go2w_config import Go2wRoughCfg, Go2wRoughCfgPPO
-
-task_registry.register( "go2_human", Go2HumanRobot, Go2HumanRoughCfg(), Go2HumanRoughCfgPPO())
-task_registry.register( "go2_arx", Go2ArxRobot, Go2ArxRoughCfg(), Go2ArxRoughCfgPPO())
-
-task_registry.register( "b2w_z1", B2WZ1Robot, B2WZ1RoughCfg(), B2WZ1RoughCfgPPO())
-
-
-
-
-task_registry.register( "b2w", B2w, B2wRoughCfg(), B2wRoughCfgPPO() )
-task_registry.register( "go2w", B2w, Go2wRoughCfg(), Go2wRoughCfgPPO() )
+from loco_manipulation_gym.envs.limx_airbot.limx_airbot_robot import LimxAirbot
+from loco_manipulation_gym.envs.limx_airbot.limx_airbot_config import LimxAirbotRoughCfg, LimxAirbotRoughCfgPPO
 
 
 task_registry.register( "airbot", Airbot, AirbotRoughCfg(), AirbotRoughCfgPPO() )
+task_registry.register( "limx_airbot", LimxAirbot, LimxAirbotRoughCfg(), LimxAirbotRoughCfgPPO() )
+task_registry.register( "solefoot_flat_with_arm", BipedSFWithArm, BipedCfgSFWithArm(), BipedCfgPPOSFWithArm() )
